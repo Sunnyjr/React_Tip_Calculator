@@ -1,0 +1,183 @@
+$letter: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+
+@mixin label($mt, $ml, $display) {
+  display: $display;
+  margin-top: $mt;
+  margin-left: $ml;
+  font-size: 20px;
+  word-spacing: 1px;
+  letter-spacing: 3px;
+  font-family: $letter;
+  font-weight: 800;
+}
+@mixin headlines {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+@mixin all_small_body($mt, $h) {
+  position: absolute;
+  margin-top: $mt;
+  border: 5px solid;
+  width: 790px;
+  height: $h;
+  background-color: #e2e5ec;
+  padding-top: 10px;
+}
+@mixin button($mt, $ml) {
+  position: absolute;
+  margin-top: $mt;
+  margin-left: $ml;
+  background-color: orange;
+  padding: 8px 20px;
+  font-family: $letter;
+  
+
+}
+@mixin input($display, $mt, $p1, $p2) {
+  display: $display;
+  margin-top: $mt;
+  margin-bottom: 15px;
+  margin-left: 290px;
+  font-size: 13px;
+  padding: $p1 $p2;
+  word-spacing: 2px;
+  letter-spacing: 4px;
+}
+
+* {
+  padding: 0px;
+  margin: 0px;
+}
+.container {
+  width: 800px;
+  height: 500px;
+  position: relative;
+  left: 158px;
+  top: 40px;
+  
+
+  .header {
+    background-color: #31afd4;
+    height: 70px;
+  }
+
+  & h1 {
+    @include headlines;
+  }
+
+  & h3 {
+    @include headlines;
+  }
+  .operation_body {
+    @include all_small_body(5px, 300px);
+    
+    .input {
+      padding-left: 240px;
+      padding-bottom: 20px;
+      padding-top: 20px;
+   
+    
+    // label {
+    //   @include label(10px, 250px, block);
+    // }
+      & #amount {
+        // @include input(block, 20px, 8px, 0px);
+        min-width: 300px;
+      }
+        
+    }
+    .satisfaction {
+      font-family: $letter;
+    
+      
+      
+      // label {
+      //   @include label(30px, 270px, block);
+      //   margin-bottom: 10px;
+      // }
+
+      & #name {
+        // @include input(inline, 25px, 10px, 45px);
+        min-width: 300px;
+      }
+      select {
+        min-width: 280px;
+        // font-family: $letter;
+      }
+      Button {
+        @include button(40px, 200px);
+        display: block;
+        min-width: 400px;
+        padding: 7px 1px;
+      }
+    }
+  }
+  .output {
+    @include all_small_body(330px, 250px);
+    overflow-y: auto;
+
+    .title{
+      @include headlines;
+
+      label {
+        @include label(10px, 0px, block);
+      }
+    }
+    & ul {
+      margin-left: 30px;
+      font-size: 15px;
+      word-spacing: 1px;
+      letter-spacing: 3px;
+      font-family: $letter;
+      font-weight: 600;
+
+      & li {
+        margin: 10px auto 5px 0px;
+      }
+    }
+  }
+  .button {
+    & Button {
+      @include button(603px, 210px);
+      display: block;
+      min-width: 400px;
+      padding: 7px 1px;
+    }
+  }
+  .table {
+    @include all_small_body(647px, 80px);
+    margin-bottom: 100px;
+
+    & table {
+      @include label(10px, 20px, block);
+      tr {
+        th1 {
+          @include label(10px, 10px, inline);
+        }
+        th2 {
+          @include label(10px, 370px, inline);
+        }
+      }
+      tr {
+        td1 {
+          @include label(60px, 100px, inline);
+        }
+        td2 {
+          @include label(20px, 510px, inline);
+        }
+      }
+    }
+  }
+  .copyright {
+    background-color: black;
+    display: flex;
+    color: blanchedalmond;
+    font-weight: 1000;
+    position: absolute;
+    top:810px;
+    width: 800px;
+    justify-content: center;
+    align-items: center;
+  }
+}
